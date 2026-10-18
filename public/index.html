@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Elijah &amp; Blessed Gate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Karla:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+<style>
+/* Layout: one phone-width column — arrivals tally, scanner and lookup, verdict, latest arrivals. */
+:root {
+  --bg: #f7f3ea; --surface: #fffdf8; --ink: #2d241b; --muted: #75674f; --line: #e3d9c4;
+  --gold: #8a6526; --gold-ink: #fffdf8;
+  --ok: #2e6b3f; --ok-bg: #e4f0e3; --warn: #8a5a00; --warn-bg: #fbecc8; --bad: #9b2c22; --bad-bg: #f8dfda;
+  --display: "Cormorant Garamond", Georgia, serif;
+  --body: "Karla", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root {
+  --bg: #17130e; --surface: #221c15; --ink: #f1e8d6; --muted: #b3a385; --line: #3a3024;
+  --gold: #d2aa5e; --gold-ink: #1b150e;
+  --ok: #8fd19e; --ok-bg: #1d3323; --warn: #f0c46a; --warn-bg: #3a2c10; --bad: #f19a8f; --bad-bg: #3d1d19; color-scheme: dark } }
+* { box-sizing: border-box; }
+html { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.45 var(--body); }
+[hidden] { display: none !important; }
+.wrap { max-width: 560px; margin: 0 auto; padding-block: 20px 40px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; flex-direction: column; gap: 18px; }
+header { display: flex; justify-content: space-between; align-items: flex-end; gap: 10px; }
+header div { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.eyebrow { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+h1 { margin: 0; font: 600 32px/1.05 var(--display); text-wrap: balance; }
+h1 em { font-style: normal; color: var(--gold); }
+.who { font-size: 13px; color: var(--muted); text-align: right; }
+.who button { padding: 4px 8px; font-size: 13px; margin-top: 4px; }
+
+.tally { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.stat b { display: block; font: 600 30px/1 var(--display); font-variant-numeric: tabular-nums lining-nums; }
+.stat span { font-size: 13px; color: var(--muted); }
+.bar { grid-column: 1 / -1; height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.bar i { display: block; height: 100%; width: 0; background: var(--gold); transition: width .4s; }
+
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.big { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 60px; border-radius: 12px; background: var(--gold); color: var(--gold-ink); font: 700 18px var(--body); cursor: pointer; border: 0; width: 100%; }
+.big svg { width: 26px; height: 26px; }
+.viewer { position: relative; border-radius: 12px; overflow: hidden; background: #000; aspect-ratio: 1; max-width: 100%; }
+.viewer video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.viewer .frame { position: absolute; inset: 18%; border: 3px solid rgba(255,255,255,.85); border-radius: 14px; box-shadow: 0 0 0 999px rgba(0,0,0,.25); }
+.hint { margin: 0; font-size: 13px; color: var(--muted); }
+.links { display: flex; gap: 16px; flex-wrap: wrap; }
+.linkbtn { background: none; border: 0; padding: 0; color: var(--gold); font: 700 14px var(--body); text-decoration: underline; cursor: pointer; }
+.linkbtn input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+label.lbl { font-size: 13px; font-weight: 700; color: var(--muted); }
+.row { display: flex; gap: 8px; }
+input[type=text], input[type=password] { flex: 1; min-width: 0; width: 100%; font: 500 17px var(--body); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+#code { font-family: var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+input:focus-visible, button:focus-visible { outline: 3px solid color-mix(in srgb, var(--gold) 55%, transparent); outline-offset: 2px; }
+button { font: 700 15px var(--body); border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); padding: 12px 16px; cursor: pointer; }
+button.primary { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+button:disabled { opacity: .45; cursor: default; }
+.matches { display: flex; flex-direction: column; gap: 6px; }
+.match { display: flex; justify-content: space-between; align-items: center; gap: 10px; text-align: left; font-weight: 500; }
+.match .no { font: 500 13px var(--mono); color: var(--muted); white-space: nowrap; }
+
+.verdict { border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 10px; border: 1px solid transparent; }
+.verdict.ok { background: var(--ok-bg); border-color: color-mix(in srgb, var(--ok) 35%, transparent); }
+.verdict.warn { background: var(--warn-bg); border-color: color-mix(in srgb, var(--warn) 35%, transparent); }
+.verdict.bad { background: var(--bad-bg); border-color: color-mix(in srgb, var(--bad) 35%, transparent); }
+.badge { align-self: flex-start; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
+.ok .badge { background: var(--ok); color: var(--ok-bg); } .warn .badge { background: var(--warn); color: var(--warn-bg); } .bad .badge { background: var(--bad); color: var(--bad-bg); }
+.guest { font: 600 28px/1.1 var(--display); white-space: pre-line; text-wrap: balance; overflow-wrap: anywhere; }
+.meta { font-size: 14px; color: var(--muted); margin: 0; }
+.admit { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.stepper { display: flex; align-items: center; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.stepper button { border: 0; background: none; width: 44px; height: 44px; padding: 0; font-size: 22px; }
+.stepper output { min-width: 34px; text-align: center; font: 600 24px var(--display); font-variant-numeric: tabular-nums lining-nums; }
+
+.recent { display: flex; flex-direction: column; gap: 8px; }
+.recent h2 { margin: 0; font: 600 22px var(--display); }
+.recent ol { margin: 0; padding: 0; list-style: none; }
+.recent li { display: flex; justify-content: space-between; gap: 10px; padding: 10px 2px; border-bottom: 1px solid var(--line); }
+.recent li > span:first-child { min-width: 0; overflow-wrap: anywhere; }
+.recent .t { font: 500 13px var(--mono); color: var(--muted); white-space: nowrap; }
+.empty { font-size: 14px; color: var(--muted); margin: 0; }
+.notice { font-size: 14px; padding: 12px 14px; border-radius: 10px; background: var(--warn-bg); }
+.signin { max-width: 400px; margin: 10vh auto 0; }
+.err { color: var(--bad); font-size: 14px; margin: 0; }
+@media (prefers-reduced-motion: reduce) { .bar i { transition: none; } }
+</style>
+</head>
+<body>
+
+<!-- Sign in -->
+<main id="signin" class="wrap signin" hidden>
+  <header><div><span class="eyebrow">Saturday 12 December 2026</span><h1>Elijah <em>&amp;</em> Blessed · Gate</h1></div></header>
+  <form id="loginForm" class="panel" autocomplete="off">
+    <label class="lbl" for="usher">Your name</label>
+    <input id="usher" type="text" placeholder="e.g. Daniel" maxlength="40" required>
+    <label class="lbl" for="pin">Gate PIN</label>
+    <input id="pin" type="password" inputmode="numeric" required>
+    <p id="loginErr" class="err" hidden></p>
+    <button class="primary" type="submit">Open the gate list</button>
+  </form>
+</main>
+
+<!-- Gate -->
+<main id="gate" class="wrap" hidden>
+  <header>
+    <div><span class="eyebrow">Saturday 12 December 2026 · Leonia Park</span><h1>Elijah <em>&amp;</em> Blessed · Gate</h1></div>
+    <div class="who"><span id="whoName"></span><button type="button" id="logout">Sign out</button></div>
+  </header>
+
+  <section class="tally" aria-label="Arrivals so far">
+    <div class="stat"><b id="sPeople">–</b><span id="sPeopleOf">guests in</span></div>
+    <div class="stat"><b id="sCards">–</b><span id="sCardsOf">cards used</span></div>
+    <div class="bar" aria-hidden="true"><i id="bar"></i></div>
+  </section>
+
+  <div id="notice" class="notice" hidden></div>
+
+  <section class="panel" aria-label="Check a guest in">
+    <button type="button" class="big" id="scanBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><rect x="8" y="8" width="8" height="8" rx="1"/></svg>
+      <span id="scanText">Scan invitation QR</span>
+    </button>
+    <div id="viewer" class="viewer" hidden><video id="video" playsinline muted></video><div class="frame"></div></div>
+    <div class="links">
+      <button type="button" class="linkbtn" id="stopBtn" hidden>Stop camera</button>
+      <label class="linkbtn">Use a photo instead<input id="photo" type="file" accept="image/*" capture="environment"></label>
+    </div>
+
+    <label class="lbl" for="code">Or type the code under the QR</label>
+    <form id="codeForm" class="row" autocomplete="off">
+      <input id="code" type="text" placeholder="073-3QJ3N" spellcheck="false">
+      <button class="primary" type="submit">Check</button>
+    </form>
+
+    <label class="lbl" for="search">Or find by name (cards without a code)</label>
+    <input id="search" type="text" placeholder="e.g. Okecha" autocomplete="off">
+    <div id="matches" class="matches"></div>
+  </section>
+
+  <section id="verdict" class="verdict" hidden aria-live="polite"></section>
+
+  <section class="recent" aria-label="Latest arrivals">
+    <h2>Latest arrivals</h2>
+    <ol id="recent"></ol>
+    <p id="recentEmpty" class="empty">No one checked in yet. Arrivals show here on every usher's phone.</p>
+    <p id="adminRow" hidden><a id="exportLink" href="/api/export.csv">Download the arrivals list (CSV)</a></p>
+  </section>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+let guests = new Map(), recent = [], current = null, me = null, scanning = false, stream = null;
+
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const timeOf = (iso) => { try { return new Date(iso).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); } catch { return ''; } };
+const oneLine = (s) => s.replace(/\n/g, ' ');
+
+async function api(path, body) {
+  const r = await fetch(path, body ? { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) } : {});
+  if (r.status === 401) { showSignin(); throw new Error('signin'); }
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok) { const e = new Error(data.error || 'Something went wrong.'); e.status = r.status; e.data = data; throw e; }
+  return data;
+}
+
+function showSignin() { stopCamera(); $('gate').hidden = true; $('signin').hidden = false; }
+function showGate() { $('signin').hidden = true; $('gate').hidden = false; $('whoName').textContent = me.usher + (me.role === 'admin' ? ' · admin' : ''); $('adminRow').hidden = me.role !== 'admin'; }
+
+$('loginForm').addEventListener('submit', async (e) => {
+  e.preventDefault(); $('loginErr').hidden = true;
+  try {
+    const r = await fetch('/api/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ usher: $('usher').value, pin: $('pin').value }) });
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.error);
+    me = d; $('pin').value = ''; showGate(); refresh();
+  } catch (err) { $('loginErr').textContent = err.message || 'Could not sign in.'; $('loginErr').hidden = false; }
+});
+$('logout').onclick = async () => { await fetch('/api/logout', { method: 'POST' }); me = null; showSignin(); };
+
+async function refresh() {
+  try {
+    const d = await api('/api/state');
+    guests = new Map(d.guests.map((g) => [g.no, g])); recent = d.recent;
+    $('notice').hidden = true;
+    renderTally(); renderRecent(); if (current) renderCurrent();
+  } catch (e) { if (e.message !== 'signin') { $('notice').textContent = 'Can\'t reach the gate list. Check the phone\'s internet connection.'; $('notice').hidden = false; } }
+}
+
+function renderTally() {
+  let expected = 0, people = 0, cards = 0;
+  guests.forEach((g) => { expected += g.admits; people += g.in; if (g.in > 0) cards++; });
+  $('sPeople').textContent = people; $('sPeopleOf').textContent = `of ${expected} guests in`;
+  $('sCards').textContent = cards; $('sCardsOf').textContent = `of ${guests.size} cards used`;
+  $('bar').style.width = expected ? Math.min(100, people / expected * 100) + '%' : '0';
+}
+function renderRecent() {
+  $('recentEmpty').hidden = recent.length > 0;
+  $('recent').innerHTML = recent.map((r) => {
+    const g = guests.get(r.no);
+    return `<li><span>${esc(g ? oneLine(g.name) : 'Card ' + r.no)} <span class="meta" style="display:inline">· ${r.n > 0 ? '+' + r.n : 'undo ' + r.n} · ${esc(r.usher || '')}</span></span><span class="t">${timeOf(r.at)}</span></li>`;
+  }).join('');
+}
+
+function show(kind, html) {
+  const v = $('verdict'); v.className = 'verdict ' + kind; v.innerHTML = html; v.hidden = false;
+  v.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest' });
+}
+function openCard(no, viaCode) { current = { no, viaCode }; renderCurrent(); }
+function renderCurrent() {
+  const g = guests.get(current.no); if (!g) return;
+  const left = g.admits - g.in;
+  const badge = left <= 0 ? 'Already checked in' : g.in > 0 ? `${g.in} of ${g.admits} already in` : (current.viaCode ? 'Valid invitation' : 'On the list');
+  const body = left > 0
+    ? `<div class="admit"><div class="stepper" role="group" aria-label="People arriving now"><button type="button" id="minus" aria-label="One fewer">−</button><output id="n">${left}</output><button type="button" id="plus" aria-label="One more">+</button></div><button type="button" class="primary" id="admitBtn">Admit ${left}</button></div>`
+    : `<p class="meta">All ${g.admits} ${g.admits === 1 ? 'place is' : 'places are'} used. If the guest says they haven't come in yet, check the latest arrivals or call the RSVP contact.</p>`;
+  show(left <= 0 ? 'warn' : 'ok', `<span class="badge">${badge}</span><div class="guest">${esc(g.name)}</div><p class="meta">Card ${esc(g.no)} · admits ${g.admits}${g.in ? ` · ${g.in} in` : ''}</p>${body}${g.in > 0 ? '<button type="button" id="undo">Undo last entry for this card</button>' : ''}`);
+  if (left > 0) {
+    let n = left; const set = (v) => { n = Math.max(1, Math.min(left, v)); $('n').textContent = n; $('admitBtn').textContent = 'Admit ' + n; };
+    $('minus').onclick = () => set(n - 1); $('plus').onclick = () => set(n + 1);
+    $('admitBtn').onclick = async (e) => {
+      e.target.disabled = true;
+      try { await api('/api/checkin', { no: g.no, n }); await refresh(); }
+      catch (err) { if (err.message !== 'signin') { e.target.disabled = false; await refresh(); $('notice').textContent = err.message; $('notice').hidden = false; } }
+    };
+  }
+  const u = $('undo');
+  if (u) u.onclick = async () => {
+    if (!u.dataset.sure) { u.dataset.sure = '1'; u.textContent = 'Tap again to remove the last entry'; return; }
+    u.disabled = true; try { await api('/api/undo', { no: g.no }); await refresh(); } catch (err) { if (err.message !== 'signin') { $('notice').textContent = err.message; $('notice').hidden = false; } }
+  };
+}
+
+async function checkCode(text, fromScan) {
+  try {
+    const r = await api('/api/verify', { code: text });
+    if (r.valid) return openCard(r.no, true);
+    current = null;
+    if (r.reason === 'format') show('bad', `<span class="badge">${fromScan ? 'Not an invitation QR' : 'Code not recognised'}</span><div class="guest">Try again</div><p class="meta">${fromScan ? 'That QR isn\'t one of our invitation codes.' : 'Codes look like 073-3QJ3N: three digits, a dash, five letters or numbers.'}</p>`);
+    else show('bad', `<span class="badge">Not a valid invitation</span><div class="guest">${esc(r.code)}</div><p class="meta">This code doesn't match our guest list, so the card may be altered or made up. Find the guest by name, or call the RSVP contact.</p>`);
+  } catch (e) { if (e.message !== 'signin') show('bad', `<span class="badge">Couldn't check</span><div class="guest">No connection</div><p class="meta">Try again in a moment.</p>`); }
+}
+
+$('codeForm').addEventListener('submit', (e) => { e.preventDefault(); checkCode($('code').value, false); });
+$('search').addEventListener('input', () => {
+  const q = $('search').value.trim().toLowerCase();
+  if (q.length < 2) { $('matches').innerHTML = ''; return; }
+  const hits = [...guests.values()].filter((g) => oneLine(g.name).toLowerCase().includes(q)).slice(0, 8);
+  $('matches').innerHTML = hits.length ? hits.map((g) => `<button type="button" class="match" data-no="${g.no}"><span>${esc(oneLine(g.name))}</span><span class="no">${g.no} · ${g.in}/${g.admits}</span></button>`).join('') : '<p class="empty">No guest with that name on the list.</p>';
+  $('matches').querySelectorAll('button').forEach((b) => b.onclick = () => openCard(b.dataset.no, false));
+});
+
+// --- camera scanning ---
+const canvas = document.createElement('canvas'), ctx = canvas.getContext('2d', { willReadFrequently: true });
+function decodeFrom(source, w, h) {
+  const s = Math.min(1, 900 / Math.max(w, h));
+  canvas.width = Math.round(w * s); canvas.height = Math.round(h * s);
+  ctx.drawImage(source, 0, 0, canvas.width, canvas.height);
+  const img = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  const r = window.jsQR && jsQR(img.data, canvas.width, canvas.height, { inversionAttempts: 'attemptBoth' });
+  return r ? r.data : null;
+}
+async function startCamera() {
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false });
+  } catch { $('notice').textContent = 'The camera is blocked. Allow camera access for this site, or use "Use a photo instead".'; $('notice').hidden = false; return; }
+  const v = $('video'); v.srcObject = stream; await v.play().catch(() => {});
+  $('viewer').hidden = false; $('stopBtn').hidden = false; $('scanText').textContent = 'Point at the QR…'; scanning = true;
+  const tick = () => {
+    if (!scanning) return;
+    if (v.readyState >= 2) {
+      const text = decodeFrom(v, v.videoWidth, v.videoHeight);
+      if (text) { if (navigator.vibrate) navigator.vibrate(60); stopCamera(); checkCode(text, true); return; }
+    }
+    setTimeout(() => requestAnimationFrame(tick), 120);
+  };
+  tick();
+}
+function stopCamera() {
+  scanning = false; if (stream) stream.getTracks().forEach((t) => t.stop()); stream = null;
+  $('viewer').hidden = true; $('stopBtn').hidden = true; $('scanText').textContent = 'Scan invitation QR';
+}
+$('scanBtn').onclick = () => (scanning ? stopCamera() : startCamera());
+$('stopBtn').onclick = stopCamera;
+$('photo').addEventListener('change', async () => {
+  const f = $('photo').files[0]; if (!f) return;
+  try { const b = await createImageBitmap(f); const t = decodeFrom(b, b.width, b.height); t ? checkCode(t, true) : show('bad', '<span class="badge">No QR found</span><div class="guest">Try again</div><p class="meta">Hold closer so the QR fills more of the photo, or type the code printed under it.</p>'); }
+  catch { show('bad', '<span class="badge">Couldn\'t read the photo</span><div class="guest">Try again</div><p class="meta">Take the photo again, or type the code.</p>'); }
+  $('photo').value = '';
+});
+
+// --- start ---
+(async () => {
+  try { me = await api('/api/me'); showGate(); await refresh(); } catch { showSignin(); }
+  setInterval(() => { if (me && !document.hidden) refresh(); }, 5000);
+  try { if (navigator.wakeLock) await navigator.wakeLock.request('screen'); } catch {}
+})();
+</script>
+</body>
+</html>
