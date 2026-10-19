@@ -534,12 +534,6 @@
 "codeHash": "83072e28a9232719270d4001568aa6361291aa0a7cb803794efea5b166fb4dff"
 },
 {
-"no": "092",
-"name": "Isabella Mwebaza",
-"admits": 1,
-"codeHash": "5242ce312cb24db824a79ba1dc6fe63c20e2b545b464209b68f5a62e23e68452"
-},
-{
 "no": "093",
 "name": "Blessing Uwineza",
 "admits": 1,
@@ -900,12 +894,6 @@
 "codeHash": "0b52e49f79a0948f0e91e1bd2481aa86d0e5928609afc96005ab11a5745bd4e6"
 },
 {
-"no": "157",
-"name": "Anet Arlette Tushabe",
-"admits": 1,
-"codeHash": "cd2b2ce8ffa673b114e83bf5ae5e087972f82fff197d918106ab2f205c6e648e"
-},
-{
 "no": "158",
 "name": "Daniel Rwothber",
 "admits": 2,
@@ -996,18 +984,6 @@
 "codeHash": "44df3a356b8210375a3184925ac75ad281c813955c2c1bbd8be16bb175f2f215"
 },
 {
-"no": "174",
-"name": "Arthur Kabanda",
-"admits": 1,
-"codeHash": "9a87b0d4f08f89f032b16436a6f064d068c810be895144e47cfc6695658c957b"
-},
-{
-"no": "175",
-"name": "Marshall Owach",
-"admits": 1,
-"codeHash": "36c233fde562fe63f1b18fdd6a2cdd51c58544386434a2c01a2f4de5c5da914a"
-},
-{
 "no": "176",
 "name": "Mr. Moses & Mrs. Regina Ssengabi",
 "admits": 2,
@@ -1024,18 +1000,6 @@
 "name": "Norah Ariokot",
 "admits": 1,
 "codeHash": "1b1642882fbe4f1ad1dce01548dbca873df2d201edf8641540a6701e6bf5676f"
-},
-{
-"no": "179",
-"name": "Stephen Nkajja",
-"admits": 1,
-"codeHash": "3d357b7d081aa6cace8ecfccd4fbed96618e5906716f71c14bdc715aff7b7d4d"
-},
-{
-"no": "180",
-"name": "Teopista",
-"admits": 1,
-"codeHash": "f88319de2a7156e98c03f028c9f634f6eafecc055d43918363faf2a0a465db65"
 },
 {
 "no": "181",
@@ -1108,12 +1072,6 @@
 "name": "Aunt Ruth Uyungi & Husband",
 "admits": 2,
 "codeHash": "382f2335d89e2cc6896566a4ac7a1927b9b6066fa9f9308e0cfc09e5c0c409c6"
-},
-{
-"no": "193",
-"name": "Aunt Susan Abok",
-"admits": 1,
-"codeHash": "7c960853bd3597feebf5647147c3e36e3b9dbedae3aeb71981113d67d7613fdd"
 },
 {
 "no": "194",
@@ -1332,12 +1290,6 @@
 "codeHash": "7b2605ea397f0b00d251e754cef7b658856a12e0cc188262cd4ab5c61c21ff05"
 },
 {
-"no": "230",
-"name": "Mr. Dan & Mrs. Patience Tekpe",
-"admits": 2,
-"codeHash": "320446448c35abacb746f04bb5be952375d991c387ecd8024687af3b77de6dfe"
-},
-{
 "no": "231",
 "name": "Mr. Francis Giwoi",
 "admits": 2,
@@ -1488,12 +1440,6 @@
 "codeHash": "0b3a0f9967b73a8ca87d4a9d5d7b3be12713b9267397d25b1fe4c1225a33cbaf"
 },
 {
-"no": "258",
-"name": "Uncle Abok Maxwell",
-"admits": 1,
-"codeHash": "3475e80cdfde9920f6d7f4ef0296eee3b669051da095e19d7ecdea7d05c42d0d"
-},
-{
 "no": "259",
 "name": "Uncle Alfred Ogentho",
 "admits": 2,
@@ -1538,7 +1484,7 @@
 {
 "no": "266",
 "name": "Uncle Osman Amulla Anewa",
-"admits": 1,
+"admits": 2,
 "codeHash": "12fb49920f9acc65df61fe27f9c98baf861e87f97772a282102e0ce73c5b350a"
 },
 {
@@ -1668,12 +1614,6 @@
 "codeHash": "3493d61fe6285253c858e699bb56b79e58e83fe2068b6c0a4fdb16d411754ec9"
 },
 {
-"no": "290",
-"name": "Elisha Mwesigwa",
-"admits": 1,
-"codeHash": "52ea66a76e8588f9e083c0554d5523331b47ebe50e638173e498d3a97416fbe1"
-},
-{
 "no": "291",
 "name": "Emmy Pithua",
 "admits": 2,
@@ -1746,12 +1686,6 @@
 "codeHash": "08790c324903f2084e262008c5cd8c031b136acd56564bc8edd16dd1526f3325"
 },
 {
-"no": "303",
-"name": "Joshua Businge",
-"admits": 1,
-"codeHash": "9586e41eaaa0e72cb0190f28735848063228deef076d5fe24759813346d3a25d"
-},
-{
 "no": "304",
 "name": "Mrs. Joyce Namuddu",
 "admits": 2,
@@ -1774,18 +1708,6 @@
 "name": "Kyeyune Ronnie",
 "admits": 1,
 "codeHash": "5f1078c2d3aa98b043598e44c230c1ff83b5ef307d2e598d772f77ac5b343e78"
-},
-{
-"no": "308",
-"name": "Mama Judith Guma",
-"admits": 1,
-"codeHash": "a78e77b6636600571b730e02bb8b41d4ef1fce563c33f29c30c32f4a6e45d2bb"
-},
-{
-"no": "309",
-"name": "Mama Peter Paul Ntale",
-"admits": 1,
-"codeHash": "03ffd75851f58d7871afd7e33c23fc81587c4a864caec6cfba98614366fa0cb5"
 },
 {
 "no": "310",
@@ -1942,12 +1864,6 @@
 "name": "Mr. Aliu & Mrs. Destiny Gladys",
 "admits": 2,
 "codeHash": "51fa891b91b1f22092d93b30c9ec9041dce2b176f10d18b6c8fb7fbe86c655b4"
-},
-{
-"no": "338",
-"name": "Mrs. Jeanne Namusoke",
-"admits": 2,
-"codeHash": "265160da0d3c73fa2cb005d36eb883501cb2f9f2a1f87f1b85da5937d4c85f2d"
 },
 {
 "no": "339",
@@ -2298,12 +2214,6 @@
 "codeHash": "c1511277f3d5423d53da24cfe44bd3d0387fd870213790d19fb5651ac5d6998f"
 },
 {
-"no": "399",
-"name": "Matildah Nakanwagi",
-"admits": 1,
-"codeHash": "ee145de0d730651aee643aa3cf46df5b80ca3a9b72951e5dd81470981f18a8df"
-},
-{
 "no": "400",
 "name": "Mr. & Mrs. Ivan Brian Byarugaba",
 "admits": 2,
@@ -2428,12 +2338,6 @@
 "name": "Robert Omony",
 "admits": 1,
 "codeHash": "884816d9741cdde9189b9761b2f4c5d134ed1f1eefedea8a3cccf0102347c39f"
-},
-{
-"no": "421",
-"name": "Robinah Komagum",
-"admits": 1,
-"codeHash": "f538f1d4815f98eb7ac278fd5da96f3cf24d6f4ce158fa6f4a4dd711bd2092c6"
 },
 {
 "no": "422",
@@ -2718,33 +2622,21 @@
 "codeHash": "fdc4b7a1e96e5c2df3dbebc685856d9e0c06f1766b915bb430baec9b4b6182ce"
 },
 {
-"no": "471",
-"name": "Jaja John",
-"admits": 1,
-"codeHash": "0e71579e6eb0c415ee4f1ba37183676734e4f49b1ea31464083b9d1c426bf50d"
-},
-{
 "no": "472",
 "name": "Mr. Robert Takirambudde",
 "admits": 1,
 "codeHash": "1866127ca3749bf36afc47832268033881f7a069950550401356b983584ef9d3"
 },
 {
-"no": "473",
-"name": "Aunt Barbra",
-"admits": 1,
-"codeHash": "902e731b7488f2dd31806902b33580bc8cef0308b810a6ddc2fb1d39e7b401e3"
+"no": "476",
+"name": "Anet Arlette Tushabe & Joshua Businge",
+"admits": 2,
+"codeHash": "87ea13f41f5c6b9dcdf3e5cbdb676fa40c0dc3fddee1ec608cdbb9f6025d5ee8"
 },
 {
-"no": "474",
-"name": "Martha Sendi",
-"admits": 1,
-"codeHash": "2d63bd6a730f7acfb31189ee04e5bfc57f6f6786a4c745bb0be510a160fb3af1"
-},
-{
-"no": "475",
-"name": "Olga",
-"admits": 1,
-"codeHash": "43db0da7bbf4dbe7ea9c2408b1c5d633e2543172b4865586f152e474de70f109"
+"no": "477",
+"name": "Uncle Maxwell & Aunt Susan Abok",
+"admits": 2,
+"codeHash": "739642439d655cc7fbcef17c44ed4ab9f7beafd113e32925845d3452d6c1dd3a"
 }
 ]
