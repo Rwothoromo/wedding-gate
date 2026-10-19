@@ -2716,5 +2716,35 @@
 "name": "Ps. Joshua & Christine Mugabi",
 "admits": 2,
 "codeHash": "fdc4b7a1e96e5c2df3dbebc685856d9e0c06f1766b915bb430baec9b4b6182ce"
+},
+{
+"no": "471",
+"name": "Jaja John",
+"admits": 1,
+"codeHash": "0e71579e6eb0c415ee4f1ba37183676734e4f49b1ea31464083b9d1c426bf50d"
+},
+{
+"no": "472",
+"name": "Mr. Robert Takirambudde",
+"admits": 1,
+"codeHash": "1866127ca3749bf36afc47832268033881f7a069950550401356b983584ef9d3"
+},
+{
+"no": "473",
+"name": "Aunt Barbra",
+"admits": 1,
+"codeHash": "902e731b7488f2dd31806902b33580bc8cef0308b810a6ddc2fb1d39e7b401e3"
+},
+{
+"no": "474",
+"name": "Martha Sendi",
+"admits": 1,
+"codeHash": "2d63bd6a730f7acfb31189ee04e5bfc57f6f6786a4c745bb0be510a160fb3af1"
+},
+{
+"no": "475",
+"name": "Olga",
+"admits": 1,
+"codeHash": "43db0da7bbf4dbe7ea9c2408b1c5d633e2543172b4865586f152e474de70f109"
 }
 ]
