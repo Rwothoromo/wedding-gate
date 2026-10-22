@@ -1206,12 +1206,6 @@
 "codeHash": "c50a33cd653566b023504fee07e76bc68b8db0030dbcbe7c66ea771ee51f1240"
 },
 {
-"no": "216",
-"name": "Joel Feta",
-"admits": 1,
-"codeHash": "7650752fbe61eb12f36b2a9fb573190adab9f6a5b2492e6304d110fa3950887e"
-},
-{
 "no": "217",
 "name": "Joel Peter Mugisa",
 "admits": 1,
@@ -1240,12 +1234,6 @@
 "name": "Lorna Afoyomungu Olum",
 "admits": 1,
 "codeHash": "05a3ecb24386992984ebaab7440fe94775e1962379b5ff7c737fb327a4e728c2"
-},
-{
-"no": "222",
-"name": "Mark",
-"admits": 1,
-"codeHash": "61fff6648c094caa885087d89456ae60520569996025b0b82dff6273b6e57ade"
 },
 {
 "no": "223",
@@ -1849,7 +1837,7 @@
 },
 {
 "no": "333",
-"name": "Mr. Chris & Mrs. Alethea Kamara",
+"name": "Mr. Chris Kamara & Mrs. Alethea Meya",
 "admits": 2,
 "codeHash": "355f34e895c5187d965bec50083135a88ef4307a3ee9a18de25f0cc76d0533f8"
 },
@@ -2347,8 +2335,8 @@
 },
 {
 "no": "423",
-"name": "Samalie",
-"admits": 1,
+"name": "Mr. & Mrs. Samalie Kakai",
+"admits": 2,
 "codeHash": "1935f50d06669317f28cad0c96e17d30d515ff6810638f54bf0aaf51fedb0726"
 },
 {
@@ -2638,5 +2626,41 @@
 "name": "Uncle Maxwell & Aunt Susan Abok",
 "admits": 2,
 "codeHash": "739642439d655cc7fbcef17c44ed4ab9f7beafd113e32925845d3452d6c1dd3a"
+},
+{
+"no": "479",
+"name": "Blessing Ingabire",
+"admits": 1,
+"codeHash": "679cf0c8957598df5295f92676a367b810e960b881f6b258c6f547403e8226eb"
+},
+{
+"no": "480",
+"name": "Doreen",
+"admits": 1,
+"codeHash": "e649fa5ef73320df4ea78ae8827c60858a13b2416f5f3196760ceff8fc0e7147"
+},
+{
+"no": "481",
+"name": "Faith Nakayiwa",
+"admits": 1,
+"codeHash": "15748acfb13823e6309be1fa79f4e621c08a9609a02ba870cf0a592e5a00d857"
+},
+{
+"no": "482",
+"name": "Jeremiah Kisa",
+"admits": 1,
+"codeHash": "d10e10ad6b4ac2a7384f07507742ee204b2ffe2705f3f3315090e0a59bbc20fa"
+},
+{
+"no": "484",
+"name": "Paul Ocen",
+"admits": 1,
+"codeHash": "873932c7adaf568b646e1d6e69067d1b81c29ec1323011c18cf2e91aa39d8671"
+},
+{
+"no": "486",
+"name": "Clifford Mugerwa",
+"admits": 1,
+"codeHash": "c316b7c4160d2558ff631167c26a37fad7b673e194e7b09f32daa064162dd1db"
 }
 ]
