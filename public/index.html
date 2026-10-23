@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Karla:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
 <style>
-/* Layout: one phone-width column — arrivals tally, scanner and lookup, verdict, latest arrivals. */
+/* Layout: one phone-width column — arrivals tally, view switch, then either scanner/lookup/verdict/latest arrivals or the full guest list. */
 :root {
   --bg: #f7f3ea; --surface: #fffdf8; --ink: #2d241b; --muted: #75674f; --line: #e3d9c4;
   --gold: #8a6526; --gold-ink: #fffdf8;
@@ -55,7 +55,7 @@ h1 em { font-style: normal; color: var(--gold); }
 .linkbtn input { position: absolute; width: 1px; height: 1px; opacity: 0; }
 label.lbl { font-size: 13px; font-weight: 700; color: var(--muted); }
 .row { display: flex; gap: 8px; }
-input[type=text], input[type=password] { flex: 1; min-width: 0; width: 100%; font: 500 17px var(--body); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+input[type=text], input[type=password], input[type=search] { flex: 1; min-width: 0; width: 100%; font: 500 17px var(--body); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
 #code { font-family: var(--mono); letter-spacing: .06em; text-transform: uppercase; }
 input:focus-visible, button:focus-visible { outline: 3px solid color-mix(in srgb, var(--gold) 55%, transparent); outline-offset: 2px; }
 button { font: 700 15px var(--body); border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); padding: 12px 16px; cursor: pointer; }
@@ -86,6 +86,25 @@ button:disabled { opacity: .45; cursor: default; }
 .recent .t { font: 500 13px var(--mono); color: var(--muted); white-space: nowrap; }
 .empty { font-size: 14px; color: var(--muted); margin: 0; }
 .notice { font-size: 14px; padding: 12px 14px; border-radius: 10px; background: var(--warn-bg); }
+.tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+.tabs button { border: 0; background: none; padding: 10px; color: var(--muted); }
+.tabs button[aria-selected=true] { background: var(--ink); color: var(--surface); }
+.list { display: flex; flex-direction: column; gap: 12px; }
+.listbar { position: sticky; top: 0; z-index: 1; background: var(--bg); padding-block: 8px; margin-block: -8px; display: flex; flex-direction: column; gap: 8px; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chips button { padding: 6px 12px; font-size: 13px; border-radius: 999px; background: var(--surface); }
+.chips button[aria-pressed=true] { background: var(--gold); color: var(--gold-ink); border-color: var(--gold); }
+.list ol { margin: 0; padding: 0; list-style: none; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.gl { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+.gl:last-child { border-bottom: 0; }
+.gl > div:first-child { display: flex; flex-direction: column; min-width: 0; }
+.gl .nm { font-weight: 500; overflow-wrap: anywhere; }
+.gl .no { font: 500 12px var(--mono); color: var(--muted); }
+.gl.in .nm { color: var(--muted); }
+.gl .act { display: flex; gap: 6px; flex-shrink: 0; }
+.gl .act button { padding: 10px 12px; min-height: 44px; white-space: nowrap; }
+.gl .act button.done { background: var(--ok-bg); color: var(--ok); border-color: color-mix(in srgb, var(--ok) 35%, transparent); }
+.gl .act button.arm { background: var(--bad-bg); color: var(--bad); border-color: color-mix(in srgb, var(--bad) 35%, transparent); }
 .signin { max-width: 400px; margin: 10vh auto 0; }
 .err { color: var(--bad); font-size: 14px; margin: 0; }
 @media (prefers-reduced-motion: reduce) { .bar i { transition: none; } }
@@ -121,6 +140,12 @@ button:disabled { opacity: .45; cursor: default; }
 
   <div id="notice" class="notice" hidden></div>
 
+  <div class="tabs" role="tablist" aria-label="View">
+    <button type="button" role="tab" id="tabScan" aria-controls="scanView" aria-selected="true">Scan / code</button>
+    <button type="button" role="tab" id="tabList" aria-controls="listView" aria-selected="false">Guest list</button>
+  </div>
+
+  <div id="scanView" role="tabpanel" aria-labelledby="tabScan" style="display:contents">
   <section class="panel" aria-label="Check a guest in">
     <button type="button" class="big" id="scanBtn">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><rect x="8" y="8" width="8" height="8" rx="1"/></svg>
@@ -150,6 +175,20 @@ button:disabled { opacity: .45; cursor: default; }
     <ol id="recent"></ol>
     <p id="recentEmpty" class="empty">No one checked in yet. Arrivals show here on every usher's phone.</p>
     <p id="adminRow" hidden><a id="exportLink" href="/api/export.csv">Download the arrivals list (CSV)</a></p>
+  </section>
+  </div>
+
+  <section id="listView" class="list" role="tabpanel" aria-labelledby="tabList" hidden>
+    <div class="listbar">
+      <input id="listSearch" type="search" placeholder="Filter by name or card number" autocomplete="off" aria-label="Filter the guest list">
+      <div class="chips" role="group" aria-label="Show">
+        <button type="button" data-f="all" aria-pressed="true">All</button>
+        <button type="button" data-f="out" aria-pressed="false">Not in yet</button>
+        <button type="button" data-f="in" aria-pressed="false">Checked in</button>
+      </div>
+    </div>
+    <ol id="glist"></ol>
+    <p id="glEmpty" class="empty" hidden>No guests match.</p>
   </section>
 </main>
 
@@ -188,7 +227,7 @@ async function refresh() {
     const d = await api('/api/state');
     guests = new Map(d.guests.map((g) => [g.no, g])); recent = d.recent;
     $('notice').hidden = true;
-    renderTally(); renderRecent(); if (current) renderCurrent();
+    renderTally(); renderRecent(); renderList(); if (current) renderCurrent();
   } catch (e) { if (e.message !== 'signin') { $('notice').textContent = 'Can\'t reach the gate list. Check the phone\'s internet connection.'; $('notice').hidden = false; } }
 }
 
@@ -255,6 +294,66 @@ $('search').addEventListener('input', () => {
   $('matches').querySelectorAll('button').forEach((b) => b.onclick = () => openCard(b.dataset.no, false));
 });
 
+// --- guest list: tap to check in ---
+// Rows are built once and updated in place, so the 5-second refresh doesn't jump the scroll or reset a pending undo.
+let listFilter = 'all', armed = null; const rows = new Map(), busy = new Set();
+function setView(v) {
+  const list = v === 'list';
+  $('tabScan').setAttribute('aria-selected', !list); $('tabList').setAttribute('aria-selected', list);
+  $('scanView').hidden = list; $('listView').hidden = !list;
+  if (list) stopCamera();
+  try { localStorage.setItem('gateView', v); } catch {}
+}
+$('tabScan').onclick = () => setView('scan'); $('tabList').onclick = () => setView('list');
+
+function rowActions(g) {
+  const left = g.admits - g.in;
+  if (busy.has(g.no)) return '<button type="button" disabled>Saving…</button>';
+  if (armed === g.no) return `<button type="button" class="arm" data-a="undo">Tap to undo</button>`;
+  const undo = g.in > 0 ? `<button type="button" class="done" data-a="arm" aria-label="${g.in} of ${g.admits} in. Tap to undo">✓ ${g.admits > 1 ? g.in + '/' + g.admits : 'In'}</button>` : '';
+  if (left <= 0) return undo;
+  const one = left > 1 ? '<button type="button" data-a="one">+1</button>' : '';
+  return undo + one + `<button type="button" class="primary" data-a="all">Check in${left > 1 ? ' ' + left : ''}</button>`;
+}
+function renderList() {
+  if (rows.size !== guests.size) {
+    rows.clear();
+    $('glist').innerHTML = [...guests.values()].map((g) => `<li class="gl" data-no="${g.no}"><div><span class="nm">${esc(oneLine(g.name))}</span><span class="no">${g.no} · admits ${g.admits}</span></div><div class="act"></div></li>`).join('');
+    $('glist').querySelectorAll('li').forEach((li) => rows.set(li.dataset.no, { li, act: li.querySelector('.act'), key: '' }));
+  }
+  const q = $('listSearch').value.trim().toLowerCase();
+  let out = 0, shown = 0;
+  guests.forEach((g) => {
+    const r = rows.get(g.no), key = `${g.in}|${armed === g.no}|${busy.has(g.no)}`;
+    if (r.key !== key) { r.act.innerHTML = rowActions(g); r.key = key; r.li.classList.toggle('in', g.in >= g.admits); }
+    if (g.in === 0) out++;
+    const hide = (listFilter === 'out' && g.in > 0) || (listFilter === 'in' && g.in === 0) || (q && !oneLine(g.name).toLowerCase().includes(q) && !g.no.includes(q));
+    r.li.hidden = hide; if (!hide) shown++;
+  });
+  document.querySelector('.chips [data-f=out]').textContent = `Not in yet (${out})`;
+  document.querySelector('.chips [data-f=in]').textContent = `Checked in (${guests.size - out})`;
+  $('glEmpty').hidden = shown > 0;
+}
+$('listSearch').addEventListener('input', renderList);
+document.querySelectorAll('.chips button').forEach((b) => b.onclick = () => {
+  listFilter = b.dataset.f; document.querySelectorAll('.chips button').forEach((x) => x.setAttribute('aria-pressed', x === b)); renderList();
+});
+$('glist').addEventListener('click', async (e) => {
+  const b = e.target.closest('button[data-a]'); if (!b) return;
+  const no = b.closest('li').dataset.no, g = guests.get(no), a = b.dataset.a;
+  if (a === 'arm') { armed = no; renderList(); setTimeout(() => { if (armed === no) { armed = null; renderList(); } }, 4000); return; }
+  armed = null; busy.add(no); renderList();
+  try {
+    if (a === 'undo') await api('/api/undo', { no });
+    else await api('/api/checkin', { no, n: a === 'one' ? 1 : g.admits - g.in });
+    if (navigator.vibrate) navigator.vibrate(40);
+    busy.delete(no); await refresh();
+  } catch (err) {
+    busy.delete(no); if (err.message === 'signin') return;
+    await refresh(); $('notice').textContent = `${oneLine(g.name)}: ${err.message}`; $('notice').hidden = false;
+  }
+});
+
 // --- camera scanning ---
 const canvas = document.createElement('canvas'), ctx = canvas.getContext('2d', { willReadFrequently: true });
 function decodeFrom(source, w, h) {
@@ -296,6 +395,7 @@ $('photo').addEventListener('change', async () => {
 
 // --- start ---
 (async () => {
+  try { if (localStorage.getItem('gateView') === 'list') setView('list'); } catch {}
   try { me = await api('/api/me'); showGate(); await refresh(); } catch { showSignin(); }
   setInterval(() => { if (me && !document.hidden) refresh(); }, 5000);
   try { if (navigator.wakeLock) await navigator.wakeLock.request('screen'); } catch {}
