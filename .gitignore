@@ -1,2 +1,5 @@
 node_modules/
 .env
+card-generator.zip
+card-generator/
+.DS_Store

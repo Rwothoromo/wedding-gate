@@ -1,0 +1,35 @@
+# Fly.io config for the wedding-gate app.
+# Setup (once):
+#   1. fly launch --no-deploy           (accept this fly.toml; rename app if "wedding-gate" is taken)
+#   2. fly postgres create              (pick the same region, e.g. jnb)
+#      fly postgres attach <db-name>    (this sets the DATABASE_URL secret automatically)
+#   3. fly secrets set GATE_PIN=xxxx ADMIN_PIN=xxxx SESSION_SECRET="$(openssl rand -hex 32)"
+#      # Managed Postgres requires SSL -> also:  fly secrets set PGSSL=1
+#   4. fly deploy
+# jnb = Johannesburg, the closest Fly region to Uganda.
+
+app = "wedding-gate"
+primary_region = "jnb"
+
+[build]
+
+[env]
+  PORT = "3000"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1          # keep one machine warm -> no cold-start lag at the gate
+
+  [[http_service.checks]]
+    method = "GET"
+    path = "/healthz"
+    interval = "30s"
+    timeout = "5s"
+    grace_period = "10s"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"

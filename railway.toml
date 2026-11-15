@@ -1,0 +1,22 @@
+# Railway config for the wedding-gate app.
+# Setup (once):
+#   1. railway init           (or create the project in the dashboard from this repo)
+#   2. Add a Postgres service: `railway add` -> PostgreSQL. Railway sets DATABASE_URL.
+#   3. Set the secrets:
+#        railway variables --set GATE_PIN=xxxx --set ADMIN_PIN=xxxx
+#        railway variables --set SESSION_SECRET="$(openssl rand -hex 32)"
+#      (If using Railway's PUBLIC Postgres URL rather than the private one, also
+#       set PGSSL=1 so the app connects over SSL.)
+#   4. railway up
+# Railway injects PORT automatically; server.js already reads process.env.PORT.
+
+[build]
+builder = "NIXPACKS"
+buildCommand = "npm install"
+
+[deploy]
+startCommand = "node server.js"
+healthcheckPath = "/healthz"
+healthcheckTimeout = 100
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
