@@ -402,12 +402,6 @@
     "codeHash": "f11530ef1cc5642a0d94fe0d7cf2fb979732a9990699cdfe51bf6f55227e14a4"
   },
   {
-    "no": "088",
-    "name": "Albert Ainomugisha",
-    "admits": 1,
-    "codeHash": "384fd2d778d89869c8ef6ecb52135556efd9559bbbd4d0e8ee701192e6dcc3b4"
-  },
-  {
     "no": "089",
     "name": "Andrew Jake Kifudde",
     "admits": 2,
@@ -420,12 +414,6 @@
     "codeHash": "83cd50be7d2e6b8a2cf18fe0f2c7f18be10d850cd1000507e2ce981f3acf49bc"
   },
   {
-    "no": "091",
-    "name": "Baron Henry Nangunda",
-    "admits": 1,
-    "codeHash": "83072e28a9232719270d4001568aa6361291aa0a7cb803794efea5b166fb4dff"
-  },
-  {
     "no": "094",
     "name": "Bridget Mushime",
     "admits": 1,
@@ -436,12 +424,6 @@
     "name": "Deborah",
     "admits": 1,
     "codeHash": "809313d608ca9d5261274be11e3517e989cb4274d23185d8ccf8bfbb7e77f29a"
-  },
-  {
-    "no": "096",
-    "name": "Deborah Niwenshuti",
-    "admits": 1,
-    "codeHash": "ce418f6ecd994d9a12326656d8855ee8cdc70b89d3c729f8277b2de6769ca1dd"
   },
   {
     "no": "100",
@@ -460,12 +442,6 @@
     "name": "Flavia Nakayiwa",
     "admits": 1,
     "codeHash": "607a6d5e6e9a8c63e326f4efb1be5a6b00d9976fa044046b008b74326dabf8be"
-  },
-  {
-    "no": "111",
-    "name": "Immaculate Ingabire",
-    "admits": 1,
-    "codeHash": "9ad20789d5407c4106b48ec499ce7b2ccb9cd2d0511a07355cffe8231cce202c"
   },
   {
     "no": "112",
@@ -496,12 +472,6 @@
     "name": "Kimberly",
     "admits": 1,
     "codeHash": "6d1c1aac477f8f8c1caafeea28853841791c2209ba80dd4fc399256f3f9efc70"
-  },
-  {
-    "no": "119",
-    "name": "Kread",
-    "admits": 1,
-    "codeHash": "cbfb025b54e25765c9f37adeacddd8933e9a6716cd1b67c33dff83b3a0f52776"
   },
   {
     "no": "120",
@@ -600,12 +570,6 @@
     "codeHash": "290a16903990087448430445013f9c0a1004a10a4ecca0a982244c0cb7c8d290"
   },
   {
-    "no": "141",
-    "name": "Roja Mwesigwa",
-    "admits": 1,
-    "codeHash": "9e78f6295db6b9ef5bdefbb58507a65c91ccc63d4ba7dc68a0f86ebfc8e8d7dd"
-  },
-  {
     "no": "142",
     "name": "Ruth Igiraneza",
     "admits": 1,
@@ -616,12 +580,6 @@
     "name": "Sheena Okello Atino",
     "admits": 1,
     "codeHash": "6761cca9d839eee45ac1981c3adf28f84454db4ffff88b1dad53dc03f6ca9d42"
-  },
-  {
-    "no": "146",
-    "name": "Sokie Nelson",
-    "admits": 1,
-    "codeHash": "14d7b7ea3c403284a8a31061de74231c76d26e97b721ceb4ad0fff16f94d9b5c"
   },
   {
     "no": "147",
@@ -784,12 +742,6 @@
     "name": "Amulla Uyella",
     "admits": 1,
     "codeHash": "11044e3a6feff8dea0bb91c538508121f0af2bdd98c224ef8cee84c913d8f52a"
-  },
-  {
-    "no": "186",
-    "name": "Aunt Brenda Anewa",
-    "admits": 1,
-    "codeHash": "2e2d5abab58775a6b8943b1e33a18e5d07f4d645e05f894d94865394c9ee807a"
   },
   {
     "no": "187",
@@ -1968,12 +1920,6 @@
     "codeHash": "fd5601cc3945046cb5162eca52b10901fbab85b59aec6d95609bf0a4a0e40825"
   },
   {
-    "no": "445",
-    "name": "Robert Bwanika",
-    "admits": 1,
-    "codeHash": "30df5ce6ce2f41a0a8731f164623d7af27f4abc904ac8dd260d264c029153c73"
-  },
-  {
     "no": "446",
     "name": "Amulla Grace Omwonya",
     "admits": 1,
@@ -2272,5 +2218,17 @@
     "name": "Ufoyuru George",
     "admits": 1,
     "codeHash": "67c8fe8696d4a63fb85e2dbc8b4700a4db45b088c5b94f785500a51d7919eec8"
+  },
+  {
+    "no": "509",
+    "name": "Margaret Amoding",
+    "admits": 1,
+    "codeHash": "7fc9eac8ea0bebe6420dd9060216b44d70297e0d782366d9fe0fae3e2fdcb5a1"
+  },
+  {
+    "no": "510",
+    "name": "Elijah & Blessed",
+    "admits": 2,
+    "codeHash": "5491b8522286cd8bb67c612cc66749359ab2b3a9a836c3de343fa2f27d89ec87"
   }
 ]
