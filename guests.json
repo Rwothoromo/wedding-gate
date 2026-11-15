@@ -2230,5 +2230,11 @@
     "name": "Elijah & Blessed",
     "admits": 2,
     "codeHash": "5491b8522286cd8bb67c612cc66749359ab2b3a9a836c3de343fa2f27d89ec87"
+  },
+  {
+    "no": "511",
+    "name": "Elder Moses Kisakya",
+    "admits": 1,
+    "codeHash": "cbe5e0ace8bbf15cacc6aa484712df891c799f9786dbf9ac4be2cfe98e6fe385"
   }
 ]
