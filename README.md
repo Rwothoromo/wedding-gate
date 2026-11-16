@@ -2,7 +2,7 @@
 
 A small web app for the ushers on 12 December 2026. Ushers sign in with a gate PIN, scan the QR on an invitation (or type the code under it, or find the guest by name), and admit up to the number the card allows. Every usher's phone shares one live record, so a card that has already been used is flagged at once.
 
-- `guests.json` — the 372 cards: number, name on the card, admits, and a SHA-256 of each invitation code (the codes themselves aren't stored).
+- `guests.json` — the 373 cards: number, name on the card, admits, and a SHA-256 of each invitation code (the codes themselves aren't stored).
 - `server.js` — the app (Node + Postgres).
 - `public/index.html` — the usher screen.
 - `render.yaml` — Render blueprint: one web service and one Postgres database.

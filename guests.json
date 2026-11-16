@@ -2230,5 +2230,11 @@
     "name": "Elijah & Blessed",
     "admits": 2,
     "codeHash": "5491b8522286cd8bb67c612cc66749359ab2b3a9a836c3de343fa2f27d89ec87"
+  },
+  {
+    "no": "511",
+    "name": "Owen Byomuhangi",
+    "admits": 1,
+    "codeHash": "342e2a6098dfa9d2df17c61e6fb44440ad3f334cab8b28a596feed877051f306"
   }
 ]
