@@ -769,7 +769,7 @@
   },
   {
     "no": "191",
-    "name": "Aunt Lillian",
+    "name": "Aunt Lillian Mukasa",
     "admits": 1,
     "codeHash": "a278772e87246348189438f2f8bac5aac51c31f61584cd4eec63c1dc03a87269"
   },
@@ -901,7 +901,7 @@
   },
   {
     "no": "219",
-    "name": "Junior Ucibo & Wife",
+    "name": "Dongiju Junior Ucibo & Wife",
     "admits": 2,
     "codeHash": "cdc922e9becbe233fdb037a8d88e1dd1d553bdeb1c68a4d3ccd4fbc3a0079ba9"
   },
@@ -1981,7 +1981,7 @@
   },
   {
     "no": "457",
-    "name": "Mr. Christopher Mfitumukiza",
+    "name": "Mr. Christopher Dufitumukiza",
     "admits": 1,
     "codeHash": "2102fe567aabf01493223b5ae7253efc356a71d655f1bdb72b380f587da176b8"
   },
@@ -2023,7 +2023,7 @@
   },
   {
     "no": "467",
-    "name": "Mr. Mushime Alex",
+    "name": "Mr. Alex Mushime",
     "admits": 1,
     "codeHash": "ac63c112ed7ce9014206fc9852783a6ff7b01ab118d72eebbe95bab4f5a9b499"
   },
@@ -2230,11 +2230,5 @@
     "name": "Elijah & Blessed",
     "admits": 2,
     "codeHash": "5491b8522286cd8bb67c612cc66749359ab2b3a9a836c3de343fa2f27d89ec87"
-  },
-  {
-    "no": "511",
-    "name": "Elder Moses Kisakya",
-    "admits": 1,
-    "codeHash": "cbe5e0ace8bbf15cacc6aa484712df891c799f9786dbf9ac4be2cfe98e6fe385"
   }
 ]
