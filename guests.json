@@ -2236,5 +2236,11 @@
     "name": "Phoebe Oyella",
     "admits": 1,
     "codeHash": "27d42e8f1e4fcbce6d7bc5594f1ae0cd6687a4a155950323b410e7b8e1bfc905"
+  },
+  {
+    "no": "514",
+    "name": "Uncle Justin Abok",
+    "admits": 2,
+    "codeHash": "505971deebcf3242ded865f72aaec52d6ed2ab17124d3961b0cc0c2e725bf883"
   }
 ]
