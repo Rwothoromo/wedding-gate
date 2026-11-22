@@ -211,15 +211,15 @@
   },
   {
     "no": "051",
-    "name": "Aunt Brenda",
-    "admits": 1,
-    "codeHash": "87d002138123933699488f88ef24f81a53c117a3ab743cc974c79a32cd838b17"
+    "name": "Mr. & Mrs. Hazimana Sarapio",
+    "admits": 2,
+    "codeHash": "ac4a714c0ba495d223e6e7a3c54704d22b9d75864c19a7c1ebae527bee909cd8"
   },
   {
     "no": "052",
-    "name": "Aunt Edith",
+    "name": "Mr. & Mrs. Niyonshuti",
     "admits": 2,
-    "codeHash": "4a21bc3230aad83bd6335ac6aae4685361e8aed09b5ddeab7570dfc81ec25aa2"
+    "codeHash": "93b6f396719e2c30936386cc7f56fe07963d83f2b09ae56ca3205dedcac80745"
   },
   {
     "no": "053",
@@ -253,7 +253,7 @@
   },
   {
     "no": "060",
-    "name": "Diana",
+    "name": "Munezero Diana",
     "admits": 1,
     "codeHash": "3990bb79d0661838152367fe050324392f9ef30703166815bc20c7f8406ef847"
   },
@@ -2005,7 +2005,7 @@
   },
   {
     "no": "466",
-    "name": "Mrs. Bigirimana Jane",
+    "name": "Ms. Jane Bizimana",
     "admits": 1,
     "codeHash": "c5f0630cdcfa1c2b8e7b366af91c4e363bc03cd9a26373229886dbaf83c022ff"
   },
