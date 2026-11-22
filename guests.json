@@ -1002,12 +1002,6 @@
     "codeHash": "dd2f51f55dd3b29901ad565648a135a8cb61b49c38192b8e8865f79020bc8c57"
   },
   {
-    "no": "245",
-    "name": "Mr. Walter & Mrs. Margaret Okecha",
-    "admits": 2,
-    "codeHash": "318f46336a4600e599864c3c9853da2bbb0a1aad1fd63d4d4018502304f76bdb"
-  },
-  {
     "no": "246",
     "name": "Pamela Kertho",
     "admits": 1,
@@ -2110,12 +2104,6 @@
     "name": "Elizabeth Anyodi",
     "admits": 1,
     "codeHash": "648658cd06d81d7a6a8dcc100fc5908ff274e4cf567ebf77382ff5f60c275a13"
-  },
-  {
-    "no": "493",
-    "name": "Dr. & Mrs. Fred Nalugudda",
-    "admits": 2,
-    "codeHash": "cb8ea1c0201bdf1f0684103630d310332ea7812fdde33734a801e64c5d9f4be8"
   },
   {
     "no": "494",
