@@ -1032,12 +1032,6 @@
     "codeHash": "a245401ea2ffe368feaee6711e4d8d6bde1dc37ecbff65a805b5bfe90f619f1b"
   },
   {
-    "no": "251",
-    "name": "Rev. Canon Innocent Ucungi",
-    "admits": 1,
-    "codeHash": "6c7e5a478db8b41efb6a9a42a4de4f39c104532e987cb306bf108bcd75fcec36"
-  },
-  {
     "no": "252",
     "name": "Richard",
     "admits": 1,
@@ -1105,7 +1099,7 @@
   },
   {
     "no": "264",
-    "name": "Uncle Moses",
+    "name": "Uncle Moses Ogentho",
     "admits": 2,
     "codeHash": "cdf5332d02a17195a8822d092f2b2ca6467385d2d3fab29ba597745766fb7a89"
   },
