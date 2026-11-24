@@ -1830,12 +1830,6 @@
     "codeHash": "696a9ff26cea7f36a237af084f6481bfe8862c3410b550f4b2d3b2ea5f2bf46b"
   },
   {
-    "no": "434",
-    "name": "Deborah Mirembe",
-    "admits": 1,
-    "codeHash": "6fb34bd515a5bb168bdf4bf34702a8af91846b5f4b8f0bd0991e4c6dcb5d2563"
-  },
-  {
     "no": "437",
     "name": "Veronica Lynn Ntabadde",
     "admits": 1,
@@ -2224,5 +2218,11 @@
     "name": "Mr. & Mrs. Mugarura",
     "admits": 2,
     "codeHash": "6d829a837512100f6b8b4dfa209aa8654e438378659178efef9dc43f216f7438"
+  },
+  {
+    "no": "521",
+    "name": "Nelson Murungi Mwirumubi",
+    "admits": 1,
+    "codeHash": "46a5f0c0ae933132f006d7df1e4b1ea5a0cf021def3423f53a3be012a58b8806"
   }
 ]
