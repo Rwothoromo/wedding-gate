@@ -744,12 +744,6 @@
     "codeHash": "b8f31b24ef083c8a627dc5ef8a60132a618a4bbfd2440b2074f52b96a0ee6c61"
   },
   {
-    "no": "190",
-    "name": "Aunt Jeniffer Tibeigana",
-    "admits": 1,
-    "codeHash": "ffa4faae98a0a8254a70048c3ea1df4a170e3af5618511182da8c8fc3463daaa"
-  },
-  {
     "no": "191",
     "name": "Aunt Lillian Mukasa",
     "admits": 1,
@@ -808,12 +802,6 @@
     "name": "Dr. Ntambi & Mrs. Sharon Kisa",
     "admits": 2,
     "codeHash": "8f9990437472b0974dc428d2a74d94f68a598a8ef4d798c95144224f14e3d690"
-  },
-  {
-    "no": "205",
-    "name": "Timothy Mugisa",
-    "admits": 1,
-    "codeHash": "955bdae078389511af21eebff8876ae8b16946ae4f8e93847ebfdd349d1c0acc"
   },
   {
     "no": "206",
@@ -1608,12 +1596,6 @@
     "codeHash": "2bb1e2a98c0b865f75276744abefa1d5d8b34e733e87a0efb1a3fee67ae78f39"
   },
   {
-    "no": "383",
-    "name": "Mr. Brian Manzi & Mrs. Primrose",
-    "admits": 2,
-    "codeHash": "99192e032f07e2f1e7354ddc928b6e94edb148e59778c520d32fba8833b824e8"
-  },
-  {
     "no": "384",
     "name": "Brian Mununuzi",
     "admits": 1,
@@ -2170,12 +2152,6 @@
     "name": "Mr. Kwizera",
     "admits": 1,
     "codeHash": "b90597b3e96e3a4c0f2f3306138eb966652ee0777c741e60b674ac3a4d411c3b"
-  },
-  {
-    "no": "507",
-    "name": "Night Ayio Nabwami",
-    "admits": 1,
-    "codeHash": "4464534cc8546dd7cf16bad1380d590511ec35769ddd41549944a167ef48e867"
   },
   {
     "no": "508",
