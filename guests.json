@@ -2206,5 +2206,23 @@
     "name": "Mr. & Mrs. Opio",
     "admits": 2,
     "codeHash": "d7be7107929647aff968b5585f757ce6b1bc0d00c9769f3c5a5147d6b36e477c"
+  },
+  {
+    "no": "517",
+    "name": "Brenda Irankunda",
+    "admits": 1,
+    "codeHash": "6f1d9ce1755464ed37e4ca61f3dfab6c1d784a28102c93c934d738cd93caa2b9"
+  },
+  {
+    "no": "518",
+    "name": "Pamella Kampire",
+    "admits": 1,
+    "codeHash": "a8323223659043f7660411c992b152fc7d42273aa3255efedbafabcfae0d0871"
+  },
+  {
+    "no": "519",
+    "name": "Mr. & Mrs. Moses Mfitumukiza",
+    "admits": 2,
+    "codeHash": "e8ed2eea13bf204b31ecf01f6f845c3c9ed57af854aaf63518dc918f8c17e489"
   }
 ]
